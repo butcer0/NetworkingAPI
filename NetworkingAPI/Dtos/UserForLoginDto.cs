@@ -2,7 +2,7 @@
 
 namespace NetworkingAPI.Dtos
 {
-    public class UserForRegisterDto
+    public class UserForLoginDto
     {
         [Required]
         public string Username { get; set; }

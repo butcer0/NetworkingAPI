@@ -1,10 +1,13 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NetworkingAPI.Data;
 
 namespace NetworkingAPI.Controllers
 {
+    // Authorize attribute with auth middleware
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
@@ -15,7 +18,7 @@ namespace NetworkingAPI.Controllers
         {
             _context = context;
         }
-        // GET api/values
+        // GET api/
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -24,6 +27,7 @@ namespace NetworkingAPI.Controllers
         }
 
         // GET api/values/5
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
