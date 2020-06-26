@@ -19,6 +19,7 @@ namespace NetworkingAPI.Controllers
             _context = context;
         }
         // GET api/
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
